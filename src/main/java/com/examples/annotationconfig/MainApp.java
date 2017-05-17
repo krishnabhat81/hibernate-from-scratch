@@ -1,9 +1,10 @@
-package com.examples.xmlconfig;
+package com.examples.annotationconfig;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 
 import java.io.Serializable;
@@ -15,11 +16,10 @@ public class MainApp {
     private static SessionFactory sessionFactory;
 
     public static void main(String[] args){
-        //this step will read hibernate.cfg.xmlbased.xml and prepare for use
-        //or by default hibernate.cfg.xml file will be used and code looks like:
-        //sessionFactory = new Configuration().configure(here_no_file_name).buildSessionFactory();
+        //this step will read hibernate.cfg.annotation.xml and prepare for use
+        // import org.hibernate.cfg.AnnotationConfiguration;
         try{
-            sessionFactory = new Configuration().configure("hibernate.cfg.xmlbased.xml").buildSessionFactory();
+            sessionFactory = new Configuration().configure("hibernate.cfg.annotation.xml").buildSessionFactory();
         }catch (Throwable e){
             System.out.println("Can not create sessionFactory object: " + e);
             throw new ExceptionInInitializerError(e);
@@ -45,9 +45,9 @@ public class MainApp {
             session.persist(emp1);
 
             //save() -- returns generated id
-            Employee emp2 = new Employee("John", "Oran", 88888);
-            Serializable save = session.save(emp2);
-            System.out.println("Generated identifier: " + save);
+//            Employee emp2 = new Employee("John", "Oran", 88888);
+//            Serializable save = session.save(emp2);
+//            System.out.println("Generated identifier: " + save);
 
             tx.commit();
 
