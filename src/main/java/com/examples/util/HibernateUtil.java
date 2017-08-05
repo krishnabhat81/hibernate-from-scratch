@@ -15,23 +15,32 @@ import java.util.Properties;
 public class HibernateUtil {
     //default is xml based configuration...
     public static SessionFactory getSessionFactory(HibernateConfiguration configuration){
+        return findSessionFactory(configuration, null);
+    }
+
+    //helper
+    private static SessionFactory findSessionFactory(HibernateConfiguration configuration, String configFile){
         if(sessionFactory == null) {
             switch (configuration) {
                 case ANNOTATION_BASED:
-                    sessionFactory = buildXmlSessionFactory("hibernate.cfg.annotation.xml");
+                    sessionFactory = buildXmlAnnotationSessionFactory(configFile == null ? "hibernate.cfg.annotation.xml" : configFile);
                     break;
                 case JAVA_BASED:
                     sessionFactory = buildJavaSessionFactory();
                     break;
                 case XML_BASED:
                 default:
-                    sessionFactory = buildXmlSessionFactory("hibernate.cfg.xmlbased.xml");
+                    sessionFactory = buildXmlAnnotationSessionFactory(configFile == null ? "hibernate.cfg.xmlbased.xml" : configFile);
                     break;
             }
         }
         return sessionFactory;
     }
 
+    //dynamic config file
+    public static SessionFactory getSessionFactory(HibernateConfiguration configuration, String configFile) {
+        return findSessionFactory(configuration, configFile);
+    }
 
     //xml based configuration
     //similar to annotation based except xml configuration file
@@ -39,7 +48,7 @@ public class HibernateUtil {
     //annotation based configuration
     private static SessionFactory sessionFactory;
 
-    private static SessionFactory buildXmlSessionFactory(String configFile){
+    private static SessionFactory buildXmlAnnotationSessionFactory(String configFile){
 
         try {
             Configuration configuration = new Configuration();

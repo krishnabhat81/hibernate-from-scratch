@@ -13,7 +13,7 @@ public class MainApp {
     private static SessionFactory sessionFactory;
 
     public static void main(String[] args){
-        // this step will read hibernate.cfg.annotation.xml and prepare for use
+        // this step will read hibernate.cfg.annotation.many2one.xml and prepare for use
         // import org.hibernate.cfg.AnnotationConfiguration;
         try{
             sessionFactory = new Configuration().configure("hibernate.cfg.annotation.xml").buildSessionFactory();
