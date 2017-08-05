@@ -1,7 +1,6 @@
 package com.examples.annotationconfig;
 
 import javax.persistence.*;
-import javax.print.attribute.standard.MediaSize;
 import java.io.Serializable;
 
 /**

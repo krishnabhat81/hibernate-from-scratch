@@ -1,6 +1,7 @@
 package com.examples.updateVSmerge;
 
 import com.examples.annotationconfig.Employee;
+import com.examples.enumeration.HibernateConfiguration;
 import com.examples.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,12 +15,12 @@ public class MainApp {
     public static void main(String[] args) throws CloneNotSupportedException {
 
         //creating transient state...
-        Employee empTransient = new Employee("Transient", "Object", 20000);
+        Employee empTransient = new Employee("Transient", "Object", 70000);
 
-
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory(HibernateConfiguration.JAVA_BASED);
 
         //------------------ session1 ---------------------------
-        Session session1 = HibernateUtil.getSessionFactory().openSession();
+        Session session1 = sessionFactory.openSession();
         //create new Employee and set values -- transient state
         Employee emp1 = new Employee("Krishna", "Bhat", 90000);
         //save() can be used outside transaction, but if we have mapping entities, then only the primary object gets saved causing data inconsistencies
@@ -44,7 +45,7 @@ public class MainApp {
 
 
         //------------------ session2 ---------------------------
-        Session session2 = HibernateUtil.getSessionFactory().openSession();
+        Session session2 = sessionFactory.openSession();
         Transaction tx2 = session2.beginTransaction();
 
         Employee emp2 = session2.get(Employee.class, 1);//inside session2 get employee with same identifier i.e. id=1
@@ -65,6 +66,6 @@ public class MainApp {
         System.out.println("\nOriginal Emp1: " + originalEmp1 + "\n\n");
 
 
-        HibernateUtil.getSessionFactory().close();
+        sessionFactory.close();
     }
 }

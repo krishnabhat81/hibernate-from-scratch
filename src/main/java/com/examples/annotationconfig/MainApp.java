@@ -4,10 +4,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
-
-import java.io.Serializable;
 
 /**
  * Created by krishna1bhat on 5/16/17.
@@ -16,7 +13,7 @@ public class MainApp {
     private static SessionFactory sessionFactory;
 
     public static void main(String[] args){
-        //this step will read hibernate.cfg.annotation.xml and prepare for use
+        // this step will read hibernate.cfg.annotation.xml and prepare for use
         // import org.hibernate.cfg.AnnotationConfiguration;
         try{
             sessionFactory = new Configuration().configure("hibernate.cfg.annotation.xml").buildSessionFactory();
