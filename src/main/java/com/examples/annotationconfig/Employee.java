@@ -10,7 +10,7 @@ import java.io.Serializable;
 //Simple POJO class
 @Entity
 @Table(name = "EMPLOYEE")
-public class Employee implements Serializable {
+public class Employee implements Serializable, Cloneable {
     private static final long serialVersionUID = 1L;
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,5 +64,15 @@ public class Employee implements Serializable {
 
     public void setSalary(int salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" + "id=" + id + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", salary=" + salary + '}';
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }
