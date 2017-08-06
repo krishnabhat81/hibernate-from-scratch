@@ -21,7 +21,7 @@ public class Car {
     @Cascade(CascadeType.ALL)
     //@JoinColumn(name = "customer_id") //optional for ManyToOne
     @JoinTable(name = "Car_Customer")//try commenting this line -- will create only tow tables
-    //NOTE: Car may not have Customer, so there will be a change of null customer_id in Car table
+    //NOTE: Car may not have Person, so there will be a change of null customer_id in Car table
     //So, best way to create 3rd intermediate table Car_Customer using @JoinTable...
     private Customer customer;
 
