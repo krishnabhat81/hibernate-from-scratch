@@ -1,12 +1,11 @@
 package com.examples.updateVSmerge;
 
-import com.examples.annotationconfig.Employee;
+import com.examples.annotationconfigtest.Employee;
 import com.examples.enumeration.HibernateConfiguration;
 import com.examples.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 /**
  * Created by krishna1bhat on 8/5/17.

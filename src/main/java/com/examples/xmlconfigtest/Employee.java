@@ -1,25 +1,17 @@
-package com.examples.annotationconfig;
+package com.examples.xmlconfigtest;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * Created by krishna1bhat on 5/16/17.
  */
 //Simple POJO class
-@Entity
-@Table(name = "EMPLOYEE")
-public class Employee implements Serializable, Cloneable {
+public class Employee implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
     private int id;
-    @Column(name = "FIRST_NAME")
     private String firstName;
-    @Column(name = "LAST_NAME")
     private String lastName;
-    @Column(name = "SALARY")
     private int salary;
 
     public Employee() {}
@@ -63,15 +55,5 @@ public class Employee implements Serializable, Cloneable {
 
     public void setSalary(int salary) {
         this.salary = salary;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" + "id=" + id + ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", salary=" + salary + '}';
-    }
-
-    @Override
-    public Object clone() throws CloneNotSupportedException {
-        return super.clone();
     }
 }

@@ -1,4 +1,4 @@
-package com.examples.annotationconfig;
+package com.examples.annotationconfigtest;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

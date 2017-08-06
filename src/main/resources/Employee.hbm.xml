@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.examples.xmlconfig.Employee">
+    <class name="com.examples.xmlconfigtest.Employee">
         <!--maps the unique ID attribute in class to the primary key of the database table-->
         <id name="id" type="int" column="id">
             <generator class="native" />

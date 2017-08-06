@@ -13,6 +13,6 @@
         <property name="hbm2ddl.auto">create</property>
 
         <!-- for annotation based mapping -->
-        <mapping class="com.examples.annotationconfig.Employee" />
+        <mapping class="com.examples.annotationconfigtest.Employee" />
     </session-factory>
 </hibernate-configuration>

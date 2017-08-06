@@ -1,6 +1,6 @@
 package com.examples.util;
 
-import com.examples.annotationconfig.Employee;
+import com.examples.annotationconfigtest.Employee;
 import com.examples.enumeration.HibernateConfiguration;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;

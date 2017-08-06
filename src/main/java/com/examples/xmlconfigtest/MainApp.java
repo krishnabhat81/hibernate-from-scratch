@@ -1,4 +1,4 @@
-package com.examples.xmlconfig;
+package com.examples.xmlconfigtest;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
