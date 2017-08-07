@@ -13,6 +13,7 @@ public class Customer {
     private String lastName;
 
     @OneToOne(cascade = CascadeType.ALL)
+    //@PrimaryKeyJoinColumn //if you want share PK; also you have to give manual ID to Address object to -- not recommended...
     private Address address;
 
     public long getId() {

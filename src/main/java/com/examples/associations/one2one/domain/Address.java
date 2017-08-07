@@ -10,7 +10,7 @@ import javax.persistence.Id;
 @Entity
 public class Address {
     @Id @GeneratedValue
-    private long id;
+    private long id; // if you use @PrimaryKeyJoinColumn in Customer; you have to set id manually
     private String street;
     private String city;
     private String state;
