@@ -3,18 +3,28 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <!-- MySQL DB Connection -->
+        <!-- datasource - MySQL DB Connection -->
         <property name="connection.url">jdbc:mysql://localhost/hibernate-examples</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
+
+        <!-- LocalSessionFactoryBean or, AnnotationSessionFactoryBean ; id = "hibernate4AnnotatedSessionFactory" and property hibernateProperties-->
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">create</property>
         <property name="connection.pool_size">1</property>
 
-        <!-- for annotation based mappings -->
+        <!-- for annotation based mappings ; mappingResources property or annotatedClasses-->
         <mapping class="com.examples.associations.one2many.domain.Car" />
         <mapping class="com.examples.associations.one2many.domain.Person" />
+
+
+
+        <!-- do you remember this while integrating with Spring Framework? -->
+        <!--<bean id="personDAO" class="com.examples.dao.PersonDAOImpl">-->
+            <!--<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />-->
+        <!--</bean>-->
+
     </session-factory>
 </hibernate-configuration>

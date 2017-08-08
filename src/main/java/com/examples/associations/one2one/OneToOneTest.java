@@ -4,6 +4,7 @@ import com.examples.associations.one2one.domain.Address;
 import com.examples.associations.one2one.domain.Customer;
 import com.examples.enumeration.HibernateConfiguration;
 import com.examples.util.HibernateUtil;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -29,10 +30,9 @@ public class OneToOneTest {
         customer.setAddress(address);
 
         Transaction tx = session.beginTransaction();
-        session.persist(customer);
         tx.commit();
-
         session.close();
+
         sessionFactory.close();
     }
 }
